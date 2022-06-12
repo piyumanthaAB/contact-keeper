@@ -12,14 +12,6 @@ app.use(express.json({ extended: false }));
 //connect to DB
 connectDB();
 
-app.get('/', (req, res) => {
-    res.status(200).json({
-        status: 'succes',
-        data: {
-            msg:'hello world'
-        }
-    })
-})
 
 app.use(cors());
 
