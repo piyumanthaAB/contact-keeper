@@ -13,12 +13,12 @@ const Home = () => {
   // const { isAuthenticated } = authContext;
   const contactContext = useContext(ContactContext);
 
-  const { contacts} = contactContext;
+  const { contacts,getContacts} = contactContext;
 
   // each time page loads, user is loaded
   useEffect(() => {
     authContext.loadUser();
-
+    getContacts();
   }, []);
 
   return (
