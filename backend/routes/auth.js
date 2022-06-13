@@ -64,10 +64,17 @@ router.post('/',
                 },
                 (err, token) => {
                     if (err) throw err;
-
-                    setTimeout(() => {
-                        
-                    }, 3000);
+                    const cookieOptions = {
+                        expires: new Date(Date.now() + 5000000),
+                        httpOnly: true
+                      };
+                      
+                      if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
+            
+                    console.log({'created token':token});
+                    
+                      res.cookie('jwt', token, cookieOptions);
+                    
                     res.json({ token });
 
                 }
@@ -80,6 +87,13 @@ router.post('/',
 
     });
 
+router.get('/logout', async(req, res) => {
+    res.cookie('jwt', '', {
+        expires: new Date(Date.now() + 10 * 1000),
+        httpOnly: true
+    });
+    res.status(200).json({ status: 'success' });
+})
 
 module.exports = router;
 

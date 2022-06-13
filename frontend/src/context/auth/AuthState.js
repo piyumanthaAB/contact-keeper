@@ -16,7 +16,6 @@ import setAuthToken from '../../utils/setAuthToken';
 
 const AuthState = props => {
     const initialState = {
-        token: localStorage.getItem('token'),
         isAuthenticated: null,
         loading: true,
         user: null,
@@ -109,8 +108,17 @@ const AuthState = props => {
     }
 
     // Logout
-    const logoutUser = () => {
-        dispatch({ type: LOGOUT });
+    const logoutUser = async() => {
+
+        try {
+            const res = await axios.get('api/auth/logout');
+            dispatch({ type: LOGOUT });
+
+        } catch (err) {
+            dispatch({ type: LOGOUT });
+            
+        }
+
     }
 
     // Clear Errors
@@ -121,7 +129,6 @@ const AuthState = props => {
     return (
         <AuthContext.Provider
             value={{
-                token: state.token,
                 isAuthenticated: state.isAuthenticated,
                 loading: state.loading,
                 user: state.user,

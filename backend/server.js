@@ -3,6 +3,7 @@ const connectDB = require('./../config/db');
 const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -12,7 +13,7 @@ app.use(express.json({ extended: false }));
 //connect to DB
 connectDB();
 
-
+app.use(cookieParser());
 app.use(cors());
 
 app.use(morgan('dev'));
