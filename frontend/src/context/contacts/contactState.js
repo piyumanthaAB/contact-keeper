@@ -39,7 +39,7 @@ const ContactState = props => {
                 payload: res.data
             });
 
-            console.log({'cntacts response':res.data});
+            // console.log({'cntacts response':res.data});
 
         } catch (err) {
             console.log(err.response.data);

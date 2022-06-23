@@ -374,6 +374,11 @@ table th {
   margin-bottom: 1rem;
 }
 
+.nav-brand{
+  margin-right: 10rem;
+  /* background-color: red; */
+}
+
 .navbar ul {
   display: flex;
 }

@@ -74,8 +74,8 @@ router.post('/',
                     console.log({'created token':token});
                     
                       res.cookie('jwt', token, cookieOptions);
-                    
-                    res.json({ token });
+                    user.password = undefined;
+                    res.json({ token,user });
 
                 }
             );

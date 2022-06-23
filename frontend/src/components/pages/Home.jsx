@@ -17,6 +17,7 @@ const Home = () => {
 
   // each time page loads, user is loaded
   useEffect(() => {
+    console.log('home page loaded');
     authContext.loadUser();
     getContacts();
   }, []);

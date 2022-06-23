@@ -39,8 +39,8 @@ const AuthState = props => {
             
             dispatch({ type: USER_LOADED, payload: res.data });
 
-            console.log(res.data);
-            console.log('load user ran..');
+            // console.log(res.data);
+            // console.log('load user ran..');
         } catch (err) {
             console.log(err.response.data);
             dispatch({ type: AUTH_ERROR });
@@ -93,7 +93,7 @@ const AuthState = props => {
                 type: LOGIN_SUCCESS,
                 payload: res.data
             })
-            console.log({'login response':res});
+            console.log({'login response':res.data});
             loadUser();
 
 
